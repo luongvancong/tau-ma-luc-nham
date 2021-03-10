@@ -11,14 +11,32 @@ const nhuan = false;
  		if (dayAl > 15) {
  			monthAl += 1;
  		}
- 	}
+    }
+    
+    // Vị trí khởi ngày
     const dayStartAt = (monthAl % 6) - 1;
 
-    const tyStartAt = dayAl % (6-dayStartAt);
+    // console.log(dayStartAt);
 
-    let daiAnStartAtDiaChiIndex = (6 - tyStartAt) % 6;
+    // Vị trí khởi giờ
+    const tyStartAt = dayAl % 6;
 
-    console.log('Khoi dai an tai ' + diaChiNames[daiAnStartAtDiaChiIndex]);
+    // Đại van bắt đầu tại địa chi nào?
+    let daiAnStartAtDiaChiIndex = ((6 - tyStartAt) % 6);
+
+    let result = [];
+
+    for (let i = 0; i < 6; i ++) {
+        result.push({
+            thoi_than: thoiThanNames[i],
+            start_at: [
+                diaChiNames[daiAnStartAtDiaChiIndex + i],
+                diaChiNames[(daiAnStartAtDiaChiIndex + i + 6) % 12]
+            ]
+        });
+    }
+
+    console.log(result);
  };
 
 
