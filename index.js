@@ -14,12 +14,15 @@ const nhuan = false;
  			monthAl += 1;
  		}
     }
-    
+
     // Vị trí khởi ngày
-    const dayStartAt = (monthAl % 6) - 1;
+    const day1StartAt = (monthAl % 6) - 1;
 
     // Vị trí khởi giờ
-    const tyStartAt = dayAl % 6;
+    let tyStartAt;
+    for (let i = 0; i < dayAl; i ++) {
+        tyStartAt = (day1StartAt + i) % 6;
+    }
 
     // Đại an bắt đầu tại địa chi nào?
     let daiAnStartAtDiaChiIndex = ((6 - tyStartAt) % 6);
@@ -41,6 +44,5 @@ const nhuan = false;
     console.log(result);
  };
 
-
- getDaiAnStartAt(2, 27);
+ getDaiAnStartAt(2, 2);
  result = 4
