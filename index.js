@@ -6,12 +6,19 @@ const diaChiNames = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tị", "Ngọ", 
 
 const nhuan = false;
 
- const getDaiAnStartAt = (monthAl, dayAl) => {
+ const getDaiAnStartAt = (monthAl, dayAl, nhuan) => {
+ 	if (nhuan) {
+ 		if (dayAl > 15) {
+ 			monthAl += 1;
+ 		}
+ 	}
     const dayStartAt = (monthAl % 6) - 1;
 
     const tyStartAt = dayAl % (6-dayStartAt);
 
-    const daiAnStartAtDiaChiIndex = 
+    let daiAnStartAtDiaChiIndex = (6 - tyStartAt) % 6;
+
+    console.log('Khoi dai an tai ' + diaChiNames[daiAnStartAtDiaChiIndex]);
  };
 
 
