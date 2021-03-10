@@ -18,12 +18,10 @@ const nhuan = false;
     // Vị trí khởi ngày
     const dayStartAt = (monthAl % 6) - 1;
 
-    // console.log(dayStartAt);
-
     // Vị trí khởi giờ
     const tyStartAt = dayAl % 6;
 
-    // Đại van bắt đầu tại địa chi nào?
+    // Đại an bắt đầu tại địa chi nào?
     let daiAnStartAtDiaChiIndex = ((6 - tyStartAt) % 6);
 
     let result = [];
