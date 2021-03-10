@@ -4,6 +4,8 @@ const thoiThanNames = ["Đại an", "Lưu niên", "Tốc hỷ", "Xích khẩu", 
 const diaChiIndexs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const diaChiNames = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tị", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
 
+const diaChiTimes = ["23g-1g", "1g-3g", "3g-5g", "5g-7g", "7g-9g", "9g-11g", "11g-13g", "13g-15g", "15g-17g", "17g-19g", "19g-21g", "21g-23g"];
+
 const nhuan = false;
 
  const getDaiAnStartAt = (monthAl, dayAl, nhuan) => {
@@ -27,11 +29,13 @@ const nhuan = false;
     let result = [];
 
     for (let i = 0; i < 6; i ++) {
+        let dcIndex = daiAnStartAtDiaChiIndex + i;
+        let dcIndexNext = (dcIndex + 6) % 12;
         result.push({
             thoi_than: thoiThanNames[i],
             start_at: [
-                diaChiNames[daiAnStartAtDiaChiIndex + i],
-                diaChiNames[(daiAnStartAtDiaChiIndex + i + 6) % 12]
+                `${diaChiNames[dcIndex]}(${diaChiTimes[dcIndex]})`,
+                `${diaChiNames[dcIndexNext]}(${diaChiTimes[dcIndexNext]})`
             ]
         });
     }
