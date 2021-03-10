@@ -34,6 +34,10 @@ const nhuan = false;
         let dcIndexNext = (dcIndex + 6) % 12;
         result.push({
             thoi_than: thoiThanNames[i],
+            start_at_zhi: [
+                diaChiNames[dcIndex],
+                diaChiNames[dcIndexNext]
+            ],
             start_at: [
                 `${diaChiNames[dcIndex]}(${diaChiTimes[dcIndex]})`,
                 `${diaChiNames[dcIndexNext]}(${diaChiTimes[dcIndexNext]})`
@@ -41,8 +45,7 @@ const nhuan = false;
         });
     }
 
-    console.log(result);
+    return result;
  };
 
- getDaiAnStartAt(2, 2);
- result = 4
+ export {getDaiAnStartAt};
